@@ -61,9 +61,11 @@ spec:
     spec:
       serviceAccount: nfs-provisioner
       terminationGracePeriodSeconds: 10
+      nodeSelector:
+        nfsnode: "true"
       containers:
         - name: nfs-provisioner
-          image: k8s.gcr.io/sig-storage/nfs-provisioner:v3.0.0
+          image: docker.io/80x86/nfs-provisioner:v3.0.0
           ports:
             - name: nfs
               containerPort: 2049
@@ -101,7 +103,7 @@ spec:
                 - DAC_READ_SEARCH
                 - SYS_RESOURCE
           args:
-            - "-provisioner=example.com/nfs"
+            - "-provisioner=ttys3.dev/nfs"
           env:
             - name: POD_IP
               valueFrom:
