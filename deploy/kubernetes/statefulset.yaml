@@ -65,7 +65,7 @@ spec:
         nfsnode: "true"
       containers:
         - name: nfs-provisioner
-          image: docker.io/80x86/nfs-provisioner:v3.0.0
+          image: k8s.gcr.io/sig-storage/nfs-provisioner:v3.0.0
           ports:
             - name: nfs
               containerPort: 2049
