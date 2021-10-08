@@ -131,7 +131,12 @@ spec:
           volumeMounts:
             - name: export-volume
               mountPath: /export
+            - name: data-volume
+              mountPath: /data
       volumes:
         - name: export-volume
           hostPath:
             path: /srv
+        - name: data-volume
+          hostPath:
+            path: /var/lib/k8s
